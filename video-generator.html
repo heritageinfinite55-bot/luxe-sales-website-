@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Text-to-Video Generator</title>
+    <link rel="stylesheet" href="video-generator.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎬 AI Text-to-Video Generator</h1>
+            <p>Transform your ideas into stunning videos with AI</p>
+        </header>
+
+        <main>
+            <section class="input-section">
+                <h2>Create Your Video</h2>
+                
+                <div class="form-group">
+                    <label for="videoPrompt">Video Description</label>
+                    <textarea 
+                        id="videoPrompt" 
+                        placeholder="Describe the video you want to create... (e.g., 'A serene sunset over mountains with peaceful music')"
+                        rows="4"
+                    ></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="videoStyle">Video Style</label>
+                    <select id="videoStyle">
+                        <option value="realistic">Realistic</option>
+                        <option value="anime">Anime</option>
+                        <option value="cartoon">Cartoon</option>
+                        <option value="cinematic">Cinematic</option>
+                        <option value="abstract">Abstract</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="videoDuration">Duration (seconds)</label>
+                    <input type="range" id="videoDuration" min="5" max="30" value="10">
+                    <span id="durationValue">10s</span>
+                </div>
+
+                <button id="generateBtn" class="generate-btn">
+                    <span class="btn-text">🎥 Generate Video</span>
+                    <span class="loading-spinner" style="display: none;">⏳ Generating...</span>
+                </button>
+            </section>
+
+            <section class="progress-section" id="progressSection" style="display: none;">
+                <h3>Generation Progress</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <p id="progressText">Initializing...</p>
+            </section>
+
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <h3>Your Generated Video</h3>
+                <div class="video-container">
+                    <video id="generatedVideo" controls width="100%">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                
+                <div class="video-actions">
+                    <button id="downloadBtn" class="download-btn">⬇️ Download Video</button>
+                    <button id="regenerateBtn" class="regenerate-btn">🔄 Regenerate</button>
+                    <button id="shareBtn" class="share-btn">🔗 Share</button>
+                </div>
+            </section>
+
+            <section class="history-section">
+                <h3>Recent Generations</h3>
+                <div id="videoHistory" class="video-grid">
+                    <p class="placeholder">No videos generated yet. Create your first video above!</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Powered by AI • Videos are generated using advanced text-to-video models</p>
+        </footer>
+    </div>
+
+    <script src="video-generator.js"></script>
+</body>
+</html>
